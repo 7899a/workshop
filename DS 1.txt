@@ -1,0 +1,182 @@
+//Name:Shinde Asmita shankarrao
+//Roll No.:207
+//SY-B (CSE)
+// Menudriven program for performing various Array opreation
+
+#include <stdio.h>
+#include<stdlib.h>
+
+int arr[100],n,k=0,i,Element,pos,ch,x;
+ void Display()
+    { 
+        printf("Element of Array:\n"); 
+        for(i=0;i<n;i++)
+        { 
+            printf("\tarr[%d]=%d\n",i,arr[i]); 
+        } 
+    }  
+    void Insert() 
+    {
+        printf("Enter the Element for insert:\n"); 
+        scanf("%d",&Element); 
+        printf("Enter the position:\n"); 
+        scanf("%d",&pos); 
+            if (pos<n){ 
+            for(i=n-1;i>=pos; i--){
+            arr[i+1]=arr[i]; 
+            }
+            arr[pos]=Element; 
+            n++; 
+            Display(); 
+            } 
+            else{ 
+            printf("Invalid input"); 
+            } 
+    }
+    void Delete()
+    { 
+        printf("Enter the position:\n"); 
+        scanf("%d",&pos); 
+        x=arr[pos-1]; 
+            if(pos<=n){ 
+                for(i=pos-1; i<n-1;i++){ 
+                arr[i]=arr[i+1]; 
+            } 
+        } 
+        else { 
+            printf("Input is Invalid \n"); 
+        } 
+        n=n-1; 
+        Display(); 
+    } 
+    void Search()
+    {
+        printf("Enter the Element for search :\n"); 
+        scanf("%d",&Element); 
+        for(i=0;i<n;i++)
+        { 
+        if(arr[i]==Element){
+        k=1; 
+        break; 
+        } 
+        else { 
+        k=0; 
+        } 
+        } 
+        if (k==1){ 
+            printf("Element Found at positon %d\n",i+1); 
+        } 
+        else { 
+            printf("Element Not Found\n"); 
+        } 
+    } 
+    int main()
+   {
+    // Info about Array
+   printf("Enter the size of array:\n");
+    scanf("%d",&n); 
+    printf("Enter the array element:\n");
+     for (i= 0; i<n; i ++)
+    {
+    scanf("%d",& arr[i]);
+    }
+     
+        printf("\n 1.Display :\n2.Insert: \n3.Delete: \n4.Search: \n5.Exit:");
+            do 
+            {
+            printf("\n Enter your choice :");
+            scanf("%d",&ch);
+            switch(ch)
+            {
+                case 1: Display();
+                 break;
+                case 2:Insert();
+                 break;
+                case 3 :Delete();
+                 break;
+                case 4:Search();
+                break;
+                case 5: printf("Exit");
+                 break;
+                default: printf("Invalid Input");
+                 break;
+            }
+            } while(ch<5);
+                return 0;
+   }
+   
+  //Output 1 :
+    
+Enter the size of array:
+5
+Enter the array element:
+1
+2
+3
+4
+5
+
+ 1.Display :
+2.Insert: 
+3.Delete: 
+4.Search: 
+5.Exit:
+ Enter your choice :1
+Element of Array:
+        A[0]=1
+        A[1]=2
+        A[2]=3
+        A[3]=4
+        A[4]=5
+
+ Enter your choice :2
+Enter the Element for insert:
+6
+Enter the position:
+5
+Invalid input
+ Enter your choice :2
+Enter the Element for insert:
+6
+Enter the position:
+4
+Element of Array:
+        A[0]=1
+        A[1]=2
+        A[2]=3
+        A[3]=4
+        A[4]=6
+        A[5]=5
+
+ Enter your choice :3
+Enter the position:
+5
+Element of Array:
+        A[0]=1
+        A[1]=2
+        A[2]=3
+        A[3]=4
+        A[4]=5
+Invalid input
+
+ Enter your choice :3
+Enter the position:
+4
+Element of Array:
+        A[0]=1
+        A[1]=2
+        A[2]=3
+        A[3]=4
+
+ Enter your choice :4
+Enter the Element for search :
+5
+Element Not Found
+
+ Enter your choice :4
+Enter the Element for search :
+2
+Element found at position 1
+
+Enter your choice :5
+Exit
